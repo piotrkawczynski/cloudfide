@@ -26,9 +26,7 @@ const getTrades = expressAsyncHandler(async (req, res, _next) => {
   const data = await response.json();
 
   const firstPeriodResult = mapKline(data[0]);
-  console.log("firstPeriodResult:", firstPeriodResult);
   const lastPeriodResult = mapKline(data[data.length - 1]);
-  console.log("lastPeriodResult:", lastPeriodResult);
 
   res.status(200).send(calculateDiff(firstPeriodResult, lastPeriodResult));
 });
