@@ -66,10 +66,18 @@ const mapKline = (data) => {
 const calculateDiff = (firstResult, secondResult) => {
   return {
     startPeriodOpenPrice: firstResult.openPrice,
-    openPriceAmplitude: secondResult.openPrice - firstResult.openPrice,
-    highPriceAmplitude: secondResult.highPrice - firstResult.highPrice,
-    lowPriceAmplitude: secondResult.lowPrice - firstResult.lowPrice,
-    closePriceAmplitude: secondResult.closePrice - firstResult.closePrice,
+    openPriceAmplitude: new Decimal(secondResult.openPrice).sub(
+      firstResult.openPrice
+    ),
+    highPriceAmplitude: new Decimal(secondResult.highPrice).sub(
+      firstResult.highPrice
+    ),
+    lowPriceAmplitude: new Decimal(secondResult.lowPrice).sub(
+      firstResult.lowPrice
+    ),
+    closePriceAmplitude: new Decimal(secondResult.closePrice).sub(
+      firstResult.closePrice
+    ),
   };
 };
 
